@@ -1,0 +1,260 @@
+STREAM DECK DO CELULAR
+======================
+
+Transforma o navegador do seu celular num painel de controle do PC (Windows):
+OBS, Steam, Epic Games, trocar de janela, volume/mídia e botões seus.
+O celular continua livre: o painel é só um site que você abre quando quiser.
+
+
+NOVIDADES DA VERSAO 4.1 - CHAT DA LIVE
+--------------------------------------
+- Na pasta OBS, em TRANSMISSAO, tem o botao "Ver chat". Ele abre o chat da live ao lado
+  (celular deitado) ou embaixo (celular em pé) e os botões se ajustam ao espaço que sobra.
+- Arraste a barrinha da borda do chat para mudar o tamanho (fica salvo). A- / A+ mudam a letra.
+- Engrenagem do chat: coloque o YouTube (link da live, @canal ou ID do vídeo) e/ou a Twitch
+  (nome do canal). Com os dois, as mensagens aparecem juntas e dá para filtrar (Todos / YT / TW).
+  Também fica no config.json em "chat": {"youtube": "...", "twitch": "..."}.
+- YouTube: quem lê o chat é o PC (precisa de internet); com @canal ele acha a live no ar sozinho.
+  Twitch: o celular lê direto (precisa de internet no celular). Só leitura, não envia mensagens.
+- ATENCAO: o chat do YouTube usa um método não oficial; se o YouTube mudar algo, pode parar de
+  funcionar até atualizar. O app Android NAO precisa ser refeito para isso.
+
+
+NOVIDADES DA VERSAO 4 - APP DO CELULAR (pasta android_app)
+----------------------------------------------------------
+Um app Android que abre o painel SEM navegador. Ao abrir, mostra "PC desconectado"
+e fica procurando o PC na rede; quando você liga o iniciar.bat, conecta sozinho.
+Se o servidor cair, volta para a tela de desconectado.
+(O código do app NAO foi compilado/testado por mim; veja os passos abaixo.)
+
+Como gerar o .apk (uma vez):
+ 1. Instale o Android Studio (gratuito) e abra a pasta android_app.
+ 2. Aguarde o "Gradle sync" (precisa de internet na primeira vez).
+ 3. Menu Build > Build Bundle(s)/APK(s) > Build APK(s).
+ 4. Clique em "locate" e mande app-debug.apk para o celular.
+ 5. No celular, abra o arquivo e permita "instalar apps desconhecidos".
+Uso: celular e PC no mesmo Wi-Fi. O app acha o PC sozinho (porta 8765).
+Se não achar, digite o endereço na tela (ex.: 192.168.0.15:8765) e toque em Conectar.
+Para trocar de PC: segure o título "Stream Deck" no topo do painel por ~1 segundo.
+O PIN do painel continua sendo pedido dentro do app. A tela fica ligada enquanto o app está aberto.
+Logo: logo_1024.png (ícone do app já incluído nas pastas do projeto).
+
+
+NOVIDADES DA VERSAO 3.2
+-----------------------
+- MODO STREAM agora PERGUNTA "Quer abrir o DroidCam também?" (Sim/Não) depois de abrir o OBS.
+- MODOS EDITÁVEIS: no lápis (topo), toque num modo (Modo Call, Modo Stream ou os seus):
+  mude o nome/logo, os passos (abrir OBS/Discord/DroidCam, programa, site, cena do OBS,
+  atalho, fechar programa, esperar), a ordem, as PERGUNTAS Sim/Não de cada passo e para
+  qual tela ir depois. "Restaurar padrão" volta ao original. Para criar um: "+" > Novo modo.
+- TODOS OS BOTÕES EDITÁVEIS: no lápis, toque em qualquer botão padrão para mudar nome e
+  logo ou OCULTAR (botões ocultos aparecem apagados no modo editar, e "Restaurar padrão"
+  traz de volta). As abas padrão também acompanham o nome/logo da pasta.
+- CRIAR ABA ficou simples: "+" > "Nova aba" (só nome e logo). Você cai direto nela, com um
+  botão grande "+ Adicionar botão aqui".
+- PAINEL DE PROGRAMA (ex.: Medal): "+" > "Painel de programa". Escolha o programa (de
+  "programas abertos agora" já vem tudo preenchido) e ele cria uma pasta/aba com Iniciar,
+  Trazer janela e Fechar (completo). Depois, dentro dela, "+" > Atalho de teclado para os
+  seus atalhos (ex.: salvar replay = Alt+F10, o que estiver configurado no Medal).
+- Novo botão "Fechar programa (completo)": encerra o programa inteiro (pede confirmação).
+  Não encerra Explorer/Python do painel.
+- No config.json: "modos_lista" (modos) e "ajustes" (botões padrão editados) são gravados
+  pelo painel. Apague a entrada para voltar ao padrão.
+
+
+NOVIDADES DA VERSAO 3.1
+-----------------------
+- Nova aba MODOS. "Modo Call com amigos": abre (ou traz para frente) o Discord e o DroidCam
+  e já abre a tela "Onde vai jogar?" com Steam, Epic Games ou Jogo avulso (pasta JOGOS).
+  Nessa tela também tem: Discord (abrir, janela, mutar, ensurdecer, Configurar Discord),
+  DroidCam (abrir, janela) e MICROFONES: lista os microfones ativos do PC (o do DroidCam
+  vem primeiro e marcado), com atalhos para as configurações de som do Windows.
+  Se o programa não achar o Discord/DroidCam, informe no config.json:
+  "modos": { "discord": "C:/.../Discord.exe", "droidcam": "C:/.../DroidCamApp.exe" }
+  "Mutar" e "Ensurdecer" enviam Ctrl+Shift+M / Ctrl+Shift+D com o Discord em primeiro plano
+  (atalhos padrão do Discord); "Configurar Discord" envia Ctrl+, .
+  Também tem "Modo Stream" (abre o OBS e vai para a pasta OBS). Você pode colocar botões
+  seus na pasta Modos pelo "+" (em "Onde vai ficar").
+- JANELAS ABERTAS: SEGURE o dedo numa janela para abrir o menu: trazer para frente,
+  minimizar, fechar janela ou "Encerrar programa (completo)" (pede confirmação).
+  O botão "Área de trabalho" fica sempre fixo como o primeiro da lista.
+
+
+NOVIDADES DA VERSAO 3
+---------------------
+- ABAS embaixo da tela: Início, Jogos, OBS, Navegador, Sistema (e as que você criar).
+  Toque numa aba para ir direto; o botão ‹ volta de onde você veio.
+- ADICIONAR BOTÕES PELO CELULAR: toque no "+" no topo. Escolha o tipo (Site, Programa ou
+  jogo, Trazer janela, Atalho de teclado, Cena do OBS, Pasta/aba), dê um nome, escolha o
+  logo e onde ele fica. Sem mexer em config.json.
+- EDITAR: toque no lápis (topo), depois num botão SEU: editar, mover ◀ ▶, trocar de lugar
+  ou apagar. Os botões padrão do painel ficam apagados nesse modo.
+- NOVA ABA: no "+" escolha "Pasta / aba" e marque "Fixar como aba". Depois é só colocar
+  botões dentro dela (escolhendo a pasta em "Onde vai ficar").
+- YouTube e WhatsApp Web já vêm como botões na tela inicial (apague se não quiser).
+- JANELAS ABERTAS: na tela inicial, uma seção só com todas as janelas abertas no PC,
+  com o ícone do programa. Toque para trazer a janela para frente.
+- JOGOS: nova pasta/aba que lista os atalhos da pasta JOGOS da sua área de trabalho
+  (.lnk e .url). Toque para abrir o jogo; subpastas viram pastas. Steam e Epic aparecem
+  lá embaixo, em "Plataformas". Se sua pasta tiver outro nome/local, use no config.json:
+  "jogos": { "pasta": "D:/Meus Jogos" }
+- LOGOS REAIS no lugar de emoji: logos de marcas (OBS, Steam, Epic, YouTube, WhatsApp,
+  Discord, Spotify…) vêm junto do painel, funcionam sem internet. Para sites sem logo
+  pronto usa o favicon do site; para programas e jogos usa o ícone real do .exe/atalho
+  (extraído pelo icon_extract.ps1 e guardado na pasta icon_cache). Emojis antigos do
+  config.json são ignorados.
+- Epic Games (beta): se ainda não listar seus jogos, coloque os atalhos deles na pasta
+  JOGOS e abra pela aba Jogos.
+- ATENÇÃO ao atualizar: extraia por cima da pasta antiga (o zip NÃO traz config.json, para
+  não apagar seu PIN e seus botões). Troque também o atalho/ícone do celular se o painel
+  ficar com a versão antiga: feche e abra de novo.
+
+
+1) INSTALAR (uma vez)
+---------------------
+a) Instale o Python 3.8 ou mais novo: https://www.python.org/downloads/
+   -> na primeira tela do instalador, marque "Add python.exe to PATH".
+b) Não precisa instalar mais nada (não há pip install).
+c) Extraia esta pasta em qualquer lugar (ex.: C:\StreamDeck).
+
+
+2) ATIVAR O CONTROLE DO OBS (uma vez)
+-------------------------------------
+No OBS: Ferramentas > Configurações do servidor WebSocket > marque "Ativar servidor
+WebSocket" > OK. Só isso: porta e senha são lidas automaticamente do OBS.
+(Precisa do OBS 28 ou mais novo. Se o painel avisar que está DESATIVADO, use o botão
+"Ativar WebSocket" que aparece na pasta OBS.)
+Se mesmo assim não conectar, você ainda pode fixar manualmente no config.json:
+"obs": { "port": 4455, "password": "SUA_SENHA" }.
+
+
+3) USAR
+-------
+a) Dê dois cliques em  iniciar.bat. Vai aparecer uma janela preta com:
+     - os endereços (ex.: http://192.168.0.15:8765)
+     - o PIN de acesso (gerado automaticamente na primeira vez)
+b) Se o Windows perguntar sobre o Firewall, clique em "Permitir acesso" em
+   redes PRIVADAS.
+c) No celular (conectado no MESMO Wi-Fi do PC), abra o endereço no navegador
+   e digite o PIN.
+d) Para virar um "app": no Chrome toque em ⋮ > "Adicionar à tela inicial" /
+   "Instalar app". No iPhone (Safari): Compartilhar > "Adicionar à Tela de Início".
+
+Para rodar escondido (sem janela preta) e abrir junto com o Windows:
+  - use iniciar_sem_janela.vbs  (e parar.bat para encerrar)
+  - Win+R, digite shell:startup e coloque um atalho do .vbs lá.
+  - o PIN fica no config.json.
+
+
+4) O QUE TEM NO PAINEL
+----------------------
+OBS      Abrir OBS, janela do OBS, iniciar/encerrar stream, iniciar/pausar/
+         retomar/encerrar gravação, mutar microfone/desktop, trocar de cena
+         (lista as suas cenas automaticamente e marca a ativa), câmera virtual,
+         replay buffer, mutar qualquer entrada de áudio.
+         No topo aparece "AO VIVO" / "GRAVANDO" em tempo real.
+Steam    Abrir Steam, janela da Steam, biblioteca, loja, downloads, amigos,
+         Big Picture, configurações, fechar. Seus jogos instalados aparecem
+         sozinhos (com capa), os recentes primeiro, e "Todos os jogos" com busca.
+Jogos    Atalhos da pasta JOGOS da área de trabalho (abre o jogo com um toque).
+Epic     Abrir Epic, janela, loja, fechar, e a lista dos seus jogos instalados
+         (com busca). Toque no jogo para abrir.
+Janelas  Alt+Tab, visão de tarefas, área de trabalho, janela à esquerda/direita,
+         minimizar/maximizar/fechar a janela atual e a LISTA das janelas abertas
+         (toque numa para trazê-la para frente).
+Sistema  Volume, mudo, play/pause/próxima/anterior, explorador, gerenciador de
+         tarefas, captura de tela, bloquear, desligar/reiniciar (com confirmação
+         e botão de cancelar).
+
+
+5) BOTÕES PERSONALIZADOS (config.json)
+--------------------------------------
+Edite o config.json em "custom". Ao salvar, o painel atualiza sozinho (não
+precisa reiniciar). (Dica: pelo celular, no "+", é bem mais fácil.) Cada botão tem "label", um tipo e,
+opcionalmente, "logo": "youtube" (nome do logo) ou "icon": "ui:gamepad-2". "icon" com emoji é ignorado:
+
+  Abrir programa/site/arquivo:
+    { "label": "Chrome", "icon": "🌐", "type": "open", "target": "C:/Program Files/Google/Chrome/Application/chrome.exe" }
+    { "label": "YouTube", "icon": "▶️", "type": "open", "target": "https://youtube.com" }
+    (com argumentos: acrescente  "args": "--incognito")
+
+  Atalho de teclado:
+    { "label": "Mutar Discord", "icon": "🔇", "type": "keys", "keys": "ctrl+shift+m" }
+    Teclas: ctrl, shift, alt, win, enter, esc, tab, space, f1..f24, letras, números,
+    setas (left/right/up/down), volumeup, volumedown, volumemute, medianext,
+    mediaprev, mediaplay, printscreen...
+
+  Comando do Windows:
+    { "label": "Calculadora", "icon": "🧮", "type": "cmd", "cmd": "calc" }
+
+  Trocar cena do OBS direto:
+    { "label": "Só eu", "icon": "🙂", "type": "obs_scene", "scene": "Cena Camera" }
+
+  Macro (vários passos em sequência; {"wait": 2} espera 2 segundos):
+    { "label": "Modo stream", "icon": "🪄", "type": "multi", "steps": [
+        { "type": "open", "target": "C:/Program Files/obs-studio/bin/64bit/obs64.exe" },
+        { "wait": 8 },
+        { "type": "obs_scene", "scene": "Abertura" }
+    ] }
+
+  Trazer janela de um programa (abre se estiver fechado):
+    { "label": "Discord", "logo": "discord", "type": "focus", "exe": "discord.exe", "launch": "C:/.../Discord.exe" }
+
+  Pasta (agrupa botões); com "aba": true vira uma aba embaixo:
+    { "label": "Meus apps", "aba": true, "items": [ ...botões... ] }
+
+  Colocar um botão (ou pasta) DENTRO de uma pasta padrão: acrescente "pasta" com
+  um destes valores: obs, steam, epic, jogos, browser, windows, system. Sem "pasta", o
+  botão aparece na tela inicial, junto das pastas padrão.
+    { "label": "Print", "icon": "📸", "pasta": "system", "type": "keys", "keys": "win+printscreen" }
+
+  Pedir confirmação antes:  acrescente  "confirm": true
+
+IMPORTANTE: no config.json use barra normal nos caminhos (C:/Pasta/app.exe) ou
+barra dupla (C:\\Pasta\\app.exe). Barra simples quebra o arquivo.
+
+
+6) OUTRAS OPÇÕES (config.json)
+------------------------------
+  "port"               porta do site (padrão 8765)
+  "pin"                PIN de acesso (troque quando quiser)
+  "confirm_dangerous"  false = não pede confirmação em desligar/encerrar stream etc.
+  "obs.path"           caminho do obs64.exe se o programa não achar sozinho
+  "steam.path"         pasta da Steam, se não for a padrão
+  "epic.manifests"     pasta dos manifests da Epic, se não for a padrão
+  "epic.libraries"     lista de pastas onde a Epic instala seus jogos, se o painel não achar
+                       sozinho. Ex.: "epic": { "libraries": ["D:/Jogos/Epic Games"] }
+                       (cada jogo é uma subpasta; o painel lê a pasta .egstore de dentro dela)
+  "abas"               ordem das abas padrão. Ex.: ["inicio","jogos","obs","steam","epic","navegador","janelas","sistema"]
+  "modos.discord" / "modos.droidcam"   caminho dos programas do Modo Call, se não forem achados
+  "jogos.pasta"        pasta com os atalhos dos jogos (padrão: JOGOS na área de trabalho)
+  "obs.auto_enable_websocket"  true (padrão) = "Abrir OBS" já liga o WebSocket do OBS
+
+
+7) SEGURANÇA
+------------
+- O painel controla o seu PC. Tudo exige o PIN; após 5 erros, bloqueia por 1 min.
+- Só funciona na sua rede local. NÃO abra a porta do roteador para a internet.
+- O celular só envia "qual botão foi tocado"; nunca comandos. Comandos só existem
+  no seu config.json.
+- Use em redes de confiança (sua casa). Em Wi-Fi público, não deixe rodando.
+
+
+8) PROBLEMAS COMUNS
+-------------------
+- Celular não abre o endereço: confira se está no mesmo Wi-Fi, se liberou o
+  Firewall (item 3b) e se usou o IP certo (a janela lista vários; o primeiro é
+  o mais provável). Roteadores com "isolamento de AP/cliente" bloqueiam isso.
+- O IP do PC mudou: reserve um IP fixo para o PC no roteador (ou use o nome do PC).
+- "OBS não está acessível": abra o OBS e confira o item 2 (WebSocket ativado,
+  senha no config.json).
+- "Janela do OBS não encontrada": o OBS está minimizado na bandeja do sistema.
+- Atalhos/janelas não funcionam em um programa aberto "como administrador"
+  (ex.: alguns jogos): o Windows bloqueia. Solução: rode o iniciar.bat também
+  como administrador (botão direito > Executar como administrador).
+- Jogos da Steam/Epic não aparecem: veja os avisos no topo da pasta; se a
+  instalação não é a padrão, ajuste "steam.path" / "epic.manifests".
+- Epic não lista jogos / OBS não responde / Steam não acha: rode diagnostico.bat.
+  Ele cria o diagnostico.txt com o que foi encontrado em cada app.
+- Ícones/logos não aparecem para um programa: rode diagnostico.bat (seção ICONES REAIS).
+- Qualquer erro: abra o arquivo streamdeck.log desta pasta.

@@ -1,0 +1,79 @@
+{
+  "port": 8765,
+  "pin": "",
+  "secret": "",
+  "confirm_dangerous": true,
+  "obs": {
+    "host": "127.0.0.1",
+    "port": 0,
+    "password": "",
+    "path": ""
+  },
+  "steam": {
+    "path": ""
+  },
+  "epic": {
+    "manifests": "",
+    "launcher_path": ""
+  },
+  "custom": [
+    {
+      "label": "Exemplos",
+      "aba": false,
+      "items": [
+        {
+          "label": "YouTube",
+          "logo": "youtube",
+          "type": "open",
+          "target": "https://www.youtube.com"
+        },
+        {
+          "label": "Calculadora",
+          "icon": "ui:calculator",
+          "type": "cmd",
+          "cmd": "calc"
+        },
+        {
+          "label": "Mutar Discord",
+          "logo": "discord",
+          "type": "keys",
+          "keys": "ctrl+shift+m"
+        },
+        {
+          "label": "Macro de exemplo",
+          "icon": "ui:wand-sparkles",
+          "type": "multi",
+          "steps": [
+            {
+              "type": "open",
+              "target": "https://www.google.com"
+            },
+            {
+              "wait": 1
+            },
+            {
+              "type": "keys",
+              "keys": "win+d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Bloco de notas",
+      "icon": "ui:file-text",
+      "type": "cmd",
+      "cmd": "notepad"
+    },
+    {
+      "label": "Print",
+      "icon": "ui:camera",
+      "pasta": "system",
+      "type": "keys",
+      "keys": "win+printscreen"
+    }
+  ],
+  "jogos": {
+    "pasta": ""
+  }
+}

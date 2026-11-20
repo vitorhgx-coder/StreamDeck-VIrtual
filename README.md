@@ -2,7 +2,7 @@ Stream Deck do Celular
 
 Transforme o celular num painel de controle do seu PC com Windows: troque cenas do OBS, abra Steam/Epic/jogos, alterne janelas, rode "Modos" (ex.: Modo Stream), veja o chat da live e até controle o PC remotamente. Roda como um site servido pelo seu próprio PC, e tem um app Android opcional.
 
-<p align="center"><img src="logo_1024.png" width="140" alt="Logo"></p>
+<p align="center"><img src="" width="140" alt="Logo"></p>
 Recursos
 OBS: trocar cena, iniciar/encerrar stream e gravação, mutar áudio, replay, câmera virtual (via WebSocket do OBS)
 Steam e Epic Games: lista e abre seus jogos instalados; pasta Jogos com atalhos da sua área de trabalho
@@ -16,7 +16,7 @@ Sem dependências: só Python 3 (biblioteca padrão)
 Como usar
 Instale o Python 3 no Windows (marque "Add to PATH").
 Dê dois cliques em iniciar.bat. Ele mostra o endereço e o PIN.
-No celular (mesmo Wi-Fi), abra o endereço (ex.: http://192.168.0.15:8765) e digite o PIN.
+No celular (mesmo Wi-Fi), abra o endereço (ex.: http://xx2.1xx.x.1x:8x6x) e digite o PIN.
 
 Guia completo (OBS, firewall, editor, modos, chat, controle remoto): LEIAME.txt.
 
@@ -26,7 +26,7 @@ A pasta android_app é um projeto do Android Studio (WebView + tela de desconect
 
 Acesso de fora de casa
 
-Use uma VPN privada como o Tailscale e acesse http://100.x.x.x:8765. Não abra a porta no roteador.
+Use uma VPN privada como o Tailscale e acesse http://100.x.x.x:8xxx. Não abra a porta no roteador.
 
 Segurança
 Este painel controla o seu PC. Tudo exige o PIN (5 erros bloqueiam por 1 minuto).
